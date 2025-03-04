@@ -1,0 +1,63 @@
+/* Feedback Form Styling */
+.feedback-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+}
+
+.feedback {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.feedback h2 {
+    font-size: 2em;
+    color: #333;
+}
+
+.feedback p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+#feedback-form {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#feedback-form label {
+    font-size: 1.1em;
+    color: #333;
+    margin-top: 10px;
+    display: block;
+}
+
+#feedback-form input, #feedback-form select, #feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#feedback-form textarea {
+    height: 150px;
+}
+
+#feedback-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+#feedback-form button:hover {
+    background-color: #45a049;
+}
+

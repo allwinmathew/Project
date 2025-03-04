@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
+</head>
+<body>
+    <!-- Feedback Form Section -->
+    <div class="feedback-container">
+        <div class="feedback">
+            <h2>Feedback</h2>
+            <p>We would love to hear your thoughts! Please provide your feedback below.</p>
+            
+            <!-- Feedback Form -->
+            <form id="feedback-form" method="post" action="{{ url_for('submit_feedback') }}">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <option value="">Select a rating</option>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="5">5 - Excellent</option>
+                </select>
+
+                <label for="feedback-message">Your Feedback:</label>
+                <textarea id="feedback-message" name="message" placeholder="Write your feedback here..." required></textarea>
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+
+            <p id="feedback-response"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("feedback-form").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const response = await fetch("{{ url_for('submit_feedback') }}", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+            document.getElementById("feedback-response").innerText = result.message;
+        });
+    </script><script>
+    document.getElementById("feedback-form").addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        // Get form data
+        const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            rating: document.getElementById("rating").value,
+            message: document.getElementById("feedback-message").value
+        };
+
+        try {
+            const response = await fetch("{{ url_for('submit_feedback') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+            document.getElementById("feedback-response").innerText = result.message || result.error;
+        } catch (error) {
+            document.getElementById("feedback-response").innerText = "Error submitting feedback!";
+            console.error("Submission error:", error);
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+   
+</div>
+
+    <!-- Login Form Section -->
+    <div class="container" id="login-container">
+        <div class="main">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="signuppage.html">Sign up</a></p>
+            <button class="home-btn"><a href="index.html">Home</a></button>
+        </div>
+    </div>
+
+    <!-- Chat Section (Initially Hidden) -->
+    <div class="chat-container" id="chat-container" style="display: none;">
+        <div class="chat-header">
+            <center><img src="icon.png" alt="Bot Icon"></center>
+            <h2>Cognitive Bias Chatbot</h2>
+            <div>
+                 
+                <ul>
+                    <li id="listOfCB" class="boldt">List Of CB
+                        <ul id="nestedList" class="nested-list">
+                            <li><a href="#home">Confirmation Bias</a></li>
+                            <li><a href="#contact">Anchoring Bias</a></li>
+                            <li><a href="#feedback">Availability Heuristic</a></li>
+                            <li><a href="#list">Hindsight Bias</a></li>
+                            <li><a href="#list">Self-Serving Bias</a></li>
+                            <li><a href="#list">Illusion of Control</a></li>
+                            <li><a href="#list">Fundamental Attribution Error</a></li>
+                            <li><a href="#list">Halo Effect</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#findingCB">Finding CB</a></li>
+                    <li><a href="#cbTest">CB Test</a></li>
+                    <li><a href="about us.html">About us</a></li>
+                    <li><a href="contactus.html">Contact us</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="#logout" id="logout">
+                        Log 
+                        out
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        <div class="chat-body" id="chat-body">
+            <div class="chat-message bot">
+                <center>
+                    Hi! Have a nice day! I am your cognitive bias guide. Ask me about any cognitive bias or related questions.
+                </center> 
+            </div>
+        </div>
+        <div class="chat-footer">
+            <center>
+                <input type="text" id="user-input" placeholder="Type your message here..."/>
+                <button id="send-btn">Send</button>
+            </center>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

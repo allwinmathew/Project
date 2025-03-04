@@ -1,0 +1,68 @@
+/* Basic Styling for About Us and Contact Us */
+.about-us-container, .contact-us-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+}
+
+.about-us, .contact-us {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-us h2, .contact-us h2 {
+    font-size: 2em;
+    color: #333;
+}
+
+.about-us p, .contact-us p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.5;
+}
+
+#contact-form {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,291 @@
+/* Body & general layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+img {
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    display: inline-block;
+}
+
+/* Container for centering content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main section styling */
+.main {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Input field styling */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Home button styling */
+.home-btn {
+    background-color: #007BFF;
+}
+
+.home-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.home-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Paragraph styling for sign-up */
+p {
+    font-size: 14px;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* Body & general layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for centering content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main section styling */
+.main {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Input field styling */
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Paragraph styling for login link */
+p {
+    font-size: 14px;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* Chat Container Styling */
+.chat-container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f4f7fc;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+/* Chat Header */
+.chat-header {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    justify-content: start;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat Body */
+.chat-body {
+    padding: 20px;
+    margin-top: 10px;
+    max-height: calc(100vh - 150px);
+    overflow-y: scroll;
+    display: inline;
+}
+
+/* Chat Footer (Input and Send button) */
+.chat-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-footer input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+.chat-footer #send-btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.chat-footer #send-btn:hover {
+    background-color: #0056b3;
+}
+/* Modify the image style */
+
+
+/* nested bar */
+/* Style for the list and anchor tags */
+.chat-header ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.chat-header li {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f1f1f1;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.chat-header li:hover {
+    background-color: #ddd;
+}
+
+/* Initially hide the nested list */
+.nested-list {
+    display: none;
+    list-style-type: none;
+    padding-left: 20px;
+    overflow: scroll;
+}
+
+.nested-list li {
+    background-color: #f4f4f4;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.nested-list li:hover {
+    background-color: #ddd;
+}
+
+/* Show nested list when hovering over the List Of CB */
+#listOfCB:hover .nested-list {
+    display: block;
+}
+
+/* Style for anchor tags (links) */
+.nested-list a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px;
+}
+
+.nested-list a:hover {
+    background-color: #ddd;
+}
+
+.boldt{
+    color: black;
+}

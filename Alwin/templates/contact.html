@@ -1,0 +1,63 @@
+<!-- Contact Us Section -->
+<div class="contact-us-container" id="contact-us-container">
+    <div class="contact-us">
+        <link rel="stylesheet" href="static/css/style3.css">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or feedback, feel free to reach out to us. We would love to hear from you!</p>
+        
+        <!-- Contact Form -->
+        <form id="contact-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea><br>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <p id="response-message"></p> <!-- Message will be displayed here after submission -->
+
+        <!-- Contact Details -->
+        <p>Email us at: <a href="mailto:support@cognitivebias.com">support@cognitivebias.com</a></p>
+        <p>Or follow us on social media:</p>
+        <ul>
+            <li><a href="https://twitter.com/cognitivebias">Twitter</a></li>
+            <li><a href="https://facebook.com/cognitivebias">Facebook</a></li>
+            <li><a href="https://instagram.com/cognitivebias">Instagram</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- JavaScript to handle form submission -->
+<script>
+    document.getElementById("contact-form").addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        // Get form data
+        const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value
+        };
+
+        try {
+            const response = await fetch("{{ url_for('submit_contact') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+            document.getElementById("response-message").innerText = result.message || result.error;
+        } catch (error) {
+            document.getElementById("response-message").innerText = "Error submitting message!";
+            console.error("Submission error:", error);
+        }
+    });
+</script>
