@@ -36,53 +36,81 @@
 
                 <button type="submit">Submit Feedback</button>
             </form>
-
-            <p id="feedback-response"></p>
         </div>
     </div>
 
+    <!-- JavaScript to handle form submission and show popups -->
     <script>
+        // Function to display success or error popups
+        function showPopup(message, type) {
+            const popup = document.createElement('div');
+            popup.style.position = 'fixed';
+            popup.style.top = '20px';
+            popup.style.left = '50%';
+            popup.style.transform = 'translateX(-50%)';
+            popup.style.padding = '10px 20px';
+            popup.style.backgroundColor = type === 'error' ? 'red' : 'green';
+            popup.style.color = 'white';
+            popup.style.fontSize = '16px';
+            popup.style.borderRadius = '5px';
+            popup.style.zIndex = '1000';
+            popup.textContent = message;
+
+            document.body.appendChild(popup);
+
+            // Remove the popup after 5 seconds
+            setTimeout(() => {
+                popup.remove();
+            }, 5000);
+        }
+
+        // Function to validate email format
+        function validateEmail(email) {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(@|com|org|net|edu|gov)$/;
+            return emailRegex.test(email);
+        }
+
+        // Handle form submission
         document.getElementById("feedback-form").addEventListener("submit", async function(event) {
             event.preventDefault();
 
-            const formData = new FormData(this);
-            const response = await fetch("{{ url_for('submit_feedback') }}", {
-                method: "POST",
-                body: formData
-            });
+            // Get form data
+            const formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                rating: document.getElementById("rating").value,
+                message: document.getElementById("feedback-message").value
+            };
 
-            const result = await response.json();
-            document.getElementById("feedback-response").innerText = result.message;
+            // Validate email
+            if (!validateEmail(formData.email)) {
+                showPopup("Please enter a valid email address (e.g., example@domain.com)", 'error');
+                return;  // Prevent form submission if email is invalid
+            }
+
+            try {
+                const response = await fetch("{{ url_for('submit_feedback') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                // Show success or error popup based on the result
+                if (result.message) {
+                    showPopup(result.message, 'success');  // Show success popup
+                } else if (result.error) {
+                    showPopup(result.error, 'error');  // Show error popup
+                }
+            } catch (error) {
+                showPopup("Error submitting feedback!", 'error');  // Show error popup on network failure
+                console.error("Submission error:", error);
+            }
         });
-    </script><script>
-    document.getElementById("feedback-form").addEventListener("submit", async function(event) {
-        event.preventDefault();
-
-        // Get form data
-        const formData = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            rating: document.getElementById("rating").value,
-            message: document.getElementById("feedback-message").value
-        };
-
-        try {
-            const response = await fetch("{{ url_for('submit_feedback') }}", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-            });
-
-            const result = await response.json();
-            document.getElementById("feedback-response").innerText = result.message || result.error;
-        } catch (error) {
-            document.getElementById("feedback-response").innerText = "Error submitting feedback!";
-            console.error("Submission error:", error);
-        }
-    });
-</script>
+    </script>
 
 </body>
 </html>

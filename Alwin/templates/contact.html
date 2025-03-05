@@ -19,8 +19,6 @@
             <button type="submit">Send Message</button>
         </form>
 
-        <p id="response-message"></p> <!-- Message will be displayed here after submission -->
-
         <!-- Contact Details -->
         <p>Email us at: <a href="mailto:support@cognitivebias.com">support@cognitivebias.com</a></p>
         <p>Or follow us on social media:</p>
@@ -34,6 +32,30 @@
 
 <!-- JavaScript to handle form submission -->
 <script>
+    // Function to display popups
+    function showPopup(message, type) {
+        const popup = document.createElement('div');
+        popup.style.position = 'fixed';
+        popup.style.top = '20px';
+        popup.style.left = '50%';
+        popup.style.transform = 'translateX(-50%)';
+        popup.style.padding = '10px 20px';
+        popup.style.backgroundColor = type === 'error' ? 'red' : 'white';
+        popup.style.color = 'green';
+        popup.style.fontSize = '16px';
+        popup.style.borderRadius = '5px';
+        popup.style.zIndex = '1000';
+        popup.textContent = message;
+
+        document.body.appendChild(popup);
+
+        // Remove the popup after 5 seconds
+        setTimeout(() => {
+            popup.remove();
+        }, 2000);
+    }
+
+    // Handle form submission asynchronously
     document.getElementById("contact-form").addEventListener("submit", async function(event) {
         event.preventDefault();
 
@@ -54,9 +76,15 @@
             });
 
             const result = await response.json();
-            document.getElementById("response-message").innerText = result.message || result.error;
+
+            // Check the response and show appropriate popup message
+            if (result.message) {
+                showPopup(result.message, 'success'); // Show success popup
+            } else if (result.error) {
+                showPopup(result.error, 'error'); // Show error popup
+            }
         } catch (error) {
-            document.getElementById("response-message").innerText = "Error submitting message!";
+            showPopup("Error submitting message!", 'error'); // Show error popup on network failure
             console.error("Submission error:", error);
         }
     });

@@ -11,7 +11,17 @@ biases_responses = {
     "anchoring bias": "Anchoring bias is a cognitive bias where individuals rely too heavily on the first piece of information they receive (the 'anchor') when making decisions.",
     "self-serving bias": "Self-serving bias is the habit of attributing positive events to one's own character but attributing negative events to external factors.",
     "illusion of control": "The illusion of control is the tendency for people to overestimate their ability to control events, even when they have no influence over them.",
-    "confirmation bias": "Confirmation bias is the tendency to search for, interpret, or remember information in a way that confirms one's preconceptions, leading to statistical errors."
+    "confirmation bias": "Confirmation bias is the tendency to search for, interpret, or remember information in a way that confirms one's preconceptions, leading to statistical errors.",
+    "hello": "Hello! How can I assist you with cognitive biases today?",
+    "hi": "Hi there! Feel free to ask about any cognitive bias, and I will be happy to help!",
+    "how are you": "I'm just a bot, but thanks for asking! How can I help you with cognitive biases?",
+    "what is your name": "I don't have a name, but you can call me 'Bias Assistant.' How can I assist you?",
+    "help": "I'm here to help you with any questions you have about cognitive biases. Just ask about a specific bias, and I'll explain it!",
+    "wrong question": "It seems like your question isn't related to cognitive biases. Please ask about a specific bias, and I will assist you with that.",
+    "what is cognitive bias": "Cognitive bias is a systematic pattern of deviation from norm or rationality in judgment, whereby inferences may be illogical.",
+    "thank you": "You're welcome! Feel free to ask more questions if you need help with cognitive biases!",
+    "goodbye": "Goodbye! If you have more questions, don't hesitate to ask again.",
+    "bye": "Goodbye! Take care and feel free to reach out when you need assistance with cognitive biases."
 }
 
 # Initialize SQLite database

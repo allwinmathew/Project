@@ -55,7 +55,7 @@
         <div class="chat-body" id="chat-body">
             <div class="chat-message bot">
                 <center>
-                    Hi! I am your cognitive bias guide. Ask me about any cognitive bias or related questions.
+                    <B>Hi! I am your cognitive bias guide. Ask me about any cognitive bias or related questions.</B>
                 </center> 
             </div>
         </div>
@@ -70,6 +70,48 @@
 
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>
     <script>
+        // Function to show the popup message for 3 seconds
+        function showPopup(message, duration) {
+            const popup = document.createElement('div');
+            popup.style.position = 'fixed';
+            popup.style.top = '20px';
+            popup.style.left = '50%';
+            popup.style.transform = 'translateX(-50%)';
+            popup.style.padding = '10px 20px';
+            popup.style.backgroundColor = 'green';
+            popup.style.color = 'white';
+            popup.style.fontSize = '16px';
+            popup.style.borderRadius = '5px';
+            popup.style.zIndex = '1000';
+            popup.textContent = message;
+
+            document.body.appendChild(popup);
+
+            // Remove the popup after the specified duration
+            setTimeout(() => {
+                popup.remove();
+            }, duration);
+        }
+
+        // Function to handle the login form submission
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check if the username and password are correct (you can modify this)
+            if (username === "correct_username" && password === "correct_password") {
+                // Redirect to the chat page after login
+                window.location.href = "{{ url_for('chat') }}"; // Redirect to chat page
+                
+                // Show a success message in popup after login
+                showPopup("Hi! I am your cognitive bias guide. Ask me about any cognitive bias or related questions.", 3000);
+            } else {
+                alert("Incorrect username or password.");
+            }
+        });
+
         // Function to handle the "Send" button click
         document.getElementById('send-btn').addEventListener('click', function() {
             const userInput = document.getElementById('user-input').value;
